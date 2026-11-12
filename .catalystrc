@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "99538000000013051",
+      "name": "JoseNew",
+      "domain": {
+        "id": "50047602511",
+        "name": "josenew-60095756469.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60095756469",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}

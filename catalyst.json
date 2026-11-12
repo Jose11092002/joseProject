@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "targets": [
+      "jose-function"
+    ],
+    "ignore": [],
+    "source": "functions"
+  },
+  "client": {
+    "source": "client"
+  }
+}
