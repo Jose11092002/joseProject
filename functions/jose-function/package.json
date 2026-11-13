@@ -5,6 +5,7 @@
 	"author": "joseronaldo@rcidigital.com",
 	"dependencies": {
 		"@zcatalyst/auth": "latest",
-		"@zcatalyst/cache": "latest"
+		"@zcatalyst/cache": "latest",
+		"@zcatalyst/datastore": "^1.0.0"
 	}
 }

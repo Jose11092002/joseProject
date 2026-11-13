@@ -1,17 +1,116 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>sampleApp</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Catalyst Portal - Login & Data Insertion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <h1>Hello World</h1>
-</body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="badge">Zoho Catalyst Full-Stack App</div>
+            <h1>Authentication & Data Insertion</h1>
+            <p class="subtitle">Submit user details from this frontend to insert records directly into the Catalyst Data Store backend.</p>
+        </header>
 
+        <!-- Main Content Grid -->
+        <main class="content-grid">
+            <!-- Form Card -->
+            <section class="card form-card">
+                <div class="card-header">
+                    <h2 id="formTitle">Sign In / Register</h2>
+                    <p>Enter your details below to submit data to the backend function.</p>
+                </div>
+
+                <!-- Action Tabs -->
+                <div class="tabs">
+                    <button type="button" class="tab-btn active" id="tabRegister" onclick="switchMode('register')">Register / New User</button>
+                    <button type="button" class="tab-btn" id="tabLogin" onclick="switchMode('login')">Quick Login</button>
+                </div>
+
+                <form id="authForm" novalidate>
+                    <!-- Name Field (Visible for Register) -->
+                    <div class="form-group" id="nameGroup">
+                        <label for="nameInput">Full Name</label>
+                        <input type="text" id="nameInput" placeholder="John Doe" autocomplete="name" />
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <label for="emailInput">Email Address <span class="required">*</span></label>
+                        <input type="email" id="emailInput" placeholder="john@example.com" required autocomplete="email" />
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <label for="passwordInput">Password <span class="required">*</span></label>
+                        <input type="password" id="passwordInput" placeholder="••••••••" required autocomplete="current-password" />
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitBtn" class="btn btn-primary">
+                        <span id="btnText">Save & Insert to Backend</span>
+                        <span id="btnSpinner" class="spinner hidden"></span>
+                    </button>
+                </form>
+
+                <!-- Feedback Banner -->
+                <div id="statusBanner" class="banner hidden">
+                    <div class="banner-icon" id="bannerIcon"></div>
+                    <div class="banner-body">
+                        <h4 id="bannerTitle">Status</h4>
+                        <p id="bannerMessage">Message goes here</p>
+                        <div id="bannerHint" class="banner-hint hidden"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Store Records Card -->
+            <section class="card data-card">
+                <div class="card-header row-between">
+                    <div>
+                        <h2>Data Store Records</h2>
+                        <p>Live rows stored in Catalyst Table: <code>Users</code></p>
+                    </div>
+                    <button type="button" id="refreshBtn" class="btn btn-outline btn-sm">
+                        Refresh
+                    </button>
+                </div>
+
+                <!-- Table Configuration Helper Banner -->
+                <div class="info-box">
+                    <strong>Backend Table Requirement:</strong>
+                    <span>Table Name: <code>Users</code> | Columns: <code>Name</code> (VarChar), <code>Email</code> (VarChar), <code>Password</code> (VarChar), <code>LoginTime</code> (VarChar/DateTime).</span>
+                </div>
+
+                <!-- Table View -->
+                <div class="table-wrapper">
+                    <table class="data-table" id="usersTable">
+                        <thead>
+                            <tr>
+                                <th>ROWID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr class="placeholder-row">
+                                <td colspan="4">Click "Refresh" or submit the form to load backend rows.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
 </html>
