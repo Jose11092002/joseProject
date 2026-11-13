@@ -8,5 +8,11 @@
   },
   "client": {
     "source": "client"
-  }
+  },
+  "slate": [
+    {
+      "name": "sampleApp",
+      "source": "client"
+    }
+  ]
 }
